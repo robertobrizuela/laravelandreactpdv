@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body,
+    .wrapper,
+    .content-wrapper {
+        background-color: #293f7a !important;
+    }
+    
+    .dark body,
+    .dark .wrapper,
+    .dark .content-wrapper {
+        background-color: #0d152d !important;
+    }
+}
