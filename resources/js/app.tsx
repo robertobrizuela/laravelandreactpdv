@@ -1,31 +1,21 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Router from './components/Router';
-
-// Declaración para TypeScript
-declare global {
-    interface Window {
-        Alpine: any;
-    }
-}
+import { createRoot } from 'react-dom/client';
+import { App } from './components/App';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 window.Alpine = Alpine;
 Alpine.start();
 
-// Espera a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', () => {
-    const rootElement = document.getElementById('root');
-    
-    if (rootElement) {
-        const root = ReactDOM.createRoot(rootElement);
-        root.render(
-            <React.StrictMode>
-                <Router />
-            </React.StrictMode>
-        );
-    } else {
-        console.error('Element with id "root" not found');
-    }
-});
+const container = document.getElementById('root');
+if (container) {
+    const root = createRoot(container);
+    root.render(
+        <React.StrictMode>
+            <App />
+            <ToastContainer />
+        </React.StrictMode>
+    );
+}

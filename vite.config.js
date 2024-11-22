@@ -11,11 +11,24 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-        react(),
+        react({
+            babel: {
+                presets: ['@babel/preset-react'],
+                plugins: ['@babel/plugin-transform-react-jsx']
+            }
+        }),
     ],
     resolve: {
         alias: {
             '@': '/resources/js',
         },
     },
+    server: {
+        hmr: {
+            overlay: false
+        }
+    },
+    optimizeDeps: {
+        include: ['react', 'react-dom', 'react-router-dom']
+    }
 });

@@ -3,10 +3,19 @@
 @section('title', 'ALIRICK')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @stop
 
 @section('content')
+    <script>var global = window;</script>
+    <script type="module">
+        import RefreshRuntime from "http://localhost:5173/@react-refresh"
+        RefreshRuntime.injectIntoGlobalHook(window)
+        window.$RefreshReg$ = () => {}
+        window.$RefreshSig$ = () => (type) => type
+        window.__vite_plugin_react_preamble_installed__ = true
+    </script>
+
     <div id="root"></div>
 @stop
 
