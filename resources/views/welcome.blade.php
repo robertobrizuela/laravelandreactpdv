@@ -7,25 +7,19 @@
 @stop
 
 @section('content')
-    <script>var global = window;</script>
-    <script type="module">
-        import RefreshRuntime from "http://localhost:5173/@react-refresh"
-        RefreshRuntime.injectIntoGlobalHook(window)
-        window.$RefreshReg$ = () => {}
-        window.$RefreshSig$ = () => (type) => type
-        window.__vite_plugin_react_preamble_installed__ = true
-    </script>
-
     <div id="root"></div>
 @stop
 
 @section('css')
-    <link rel="icon" type="image/png" href="{{ asset('images/alogo.png') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    @viteReactRefresh
     @vite(['resources/css/app.css'])
+    <link rel="stylesheet" href="{{ asset('css/admin_custom.css') }}">
 @stop
 
 @section('js')
+    @viteReactRefresh
     @vite(['resources/js/app.tsx'])
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
+    <script>
+        window.csrfToken = "{{ csrf_token() }}";
+    </script>
 @stop

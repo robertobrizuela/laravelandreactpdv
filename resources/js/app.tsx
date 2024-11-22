@@ -1,8 +1,9 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
-import React from 'react';
+import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './components/App';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './components/Router';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,8 +15,10 @@ if (container) {
     const root = createRoot(container);
     root.render(
         <React.StrictMode>
-            <App />
-            <ToastContainer />
+            <BrowserRouter>
+                <Router />
+                <ToastContainer />
+            </BrowserRouter>
         </React.StrictMode>
     );
 }

@@ -30,6 +30,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/react/{path?}', function () {
         return view('welcome');
     })->where('path', '.*')->name('react');
+
+    Route::get('/products', [ProductController::class, 'indexWeb'])->name('products.index');
+
+    Route::get('/react/pdv/{path?}', function () {
+        return view('welcome');
+    })->where('path', '.*');
+
+    Route::get('/react/pdv/products', function () {
+        return view('welcome');
+    });
 });
 
 require __DIR__.'/auth.php';

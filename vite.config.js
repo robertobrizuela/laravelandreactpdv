@@ -1,9 +1,19 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
     plugins: [
+        react({
+            jsxRuntime: 'classic', // Cambiado a classic
+            babel: {
+                presets: ['@babel/preset-react', '@babel/preset-typescript'],
+                plugins: ['@babel/plugin-transform-react-jsx'],
+                babelrc: false,
+                configFile: false
+            }
+        }),
         laravel({
             input: [
                 'resources/css/app.css',
@@ -11,22 +21,11 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-        react({
-            babel: {
-                presets: ['@babel/preset-react'],
-                plugins: ['@babel/plugin-transform-react-jsx']
-            }
-        }),
     ],
     resolve: {
         alias: {
-            '@': '/resources/js',
+            '@': path.resolve(__dirname, './resources/js'),
         },
-    },
-    server: {
-        hmr: {
-            overlay: false
-        }
     },
     optimizeDeps: {
         include: ['react', 'react-dom', 'react-router-dom']
