@@ -64,3 +64,37 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# ALIRICK App
+
+## Módulo de Productos
+
+### Funcionalidades
+- **Agregar Productos**: Permite crear nuevos productos con:
+  - Nombre
+  - Descripción
+  - Precio
+  - Stock
+  - Categoría
+  - Estado (activo/inactivo)
+
+- **Gestión de Productos**:
+  - Búsqueda por nombre o descripción
+  - Filtrado por categorías
+  - Visualización en tarjetas
+  - Actualización de stock
+  - Eliminación de productos
+
+### Categorías Disponibles
+- Paletas
+- Chicles
+- Chocolates
+- Dulces
+- Gomitas
+
+## Instrucciones de Uso
+1. Para agregar un nuevo producto, haz clic en el botón "+ Nuevo Producto"
+2. Llena todos los campos requeridos en el formulario
+3. El producto se agregará automáticamente a la lista
+4. Puedes buscar productos usando la barra de búsqueda
+5. Filtra por categorías usando el menú desplegable

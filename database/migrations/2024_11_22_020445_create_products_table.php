@@ -17,11 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 8, 2);
             $table->integer('stock');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories');
             $table->string('image_url')->nullable();
             $table->boolean('active')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

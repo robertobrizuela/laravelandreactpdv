@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::post('/profile/update', [ProfileController::class, 'updateProfile']);
     Route::post('/profile/password', [ProfileController::class, 'updatePassword']);
     Route::apiResource('clients', ClientController::class);
+    Route::prefix('v1')->group(function () {
+        Route::get('categories', [ProductController::class, 'getCategories']);
+        Route::apiResource('products', ProductController::class);
+    });
 });

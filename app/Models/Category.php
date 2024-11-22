@@ -12,6 +12,8 @@ class Category extends Model
 
     protected $fillable = ['name', 'description'];
 
+    protected $appends = ['product_count'];
+
     public static $rules = [
         'name' => 'required|string|max:255',
         'description' => 'nullable|string'
